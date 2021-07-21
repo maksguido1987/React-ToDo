@@ -1,18 +1,17 @@
 import React, { FC } from 'react';
-import TodoListItem, { ITodoListItemText } from './TodoListItem';
+import { ITodos } from '../../interfaces/interfaces';
+import TodoListItem from './TodoListItem';
+import './todo-list.scss';
 
-const TodoList: FC = ({ todos }: ITodoListItemText[]) => {
-  // const element = todos
-  return (
-    <ul>
-      <li>
-        <TodoListItem textItem="Drink Coffee" />
+const TodoList: FC<ITodos> = ({ todos }) => {
+  const element = todos.map((el) => {
+    return (
+      <li key={el.id} className="list-group-item">
+        <TodoListItem textItem={el.textItem} important={el.important} />
       </li>
-      <li>
-        <TodoListItem textItem="Build React App" important />
-      </li>
-    </ul>
-  );
+    );
+  });
+  return <ul className="list-group todo-list">{element}</ul>;
 };
 
 export default TodoList;

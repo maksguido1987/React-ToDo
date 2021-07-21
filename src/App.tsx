@@ -2,23 +2,18 @@ import React, { FC } from 'react';
 import Header from './components/Header/Header';
 import Search from './components/Search/Search';
 import TodoList from './components/TodoList/TodoList';
-import { ITodoListItemText } from './components/TodoList/TodoListItem';
-
-export interface ITodos {
-  todos: ITodoListItemText[];
-}
 
 const App: FC = () => {
-  const TodoData: ITodos = [
-    { textItem: 'Drink Coffee', important: false },
-    { textItem: 'Build React App', important: true },
-    { textItem: 'Have a lunch', important: false },
+  const todoData = [
+    { textItem: 'Drink Coffee', important: false, id: 1 },
+    { textItem: 'Build React App', important: true, id: 2 },
+    { textItem: 'Have a lunch', important: false, id: 3 },
   ];
   return (
     <div>
       <Header />
       <Search />
-      <TodoList todos={TodoData} />
+      <TodoList todos={todoData} />
     </div>
   );
 };
