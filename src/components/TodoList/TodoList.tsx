@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
-import TodoListItem from './TodoListItem';
+import TodoListItem, { ITodoListItemText } from './TodoListItem';
 
-const TodoList: FC = ({ todos }) => {
+const TodoList: FC = ({ todos }: ITodoListItemText[]) => {
+  // const element = todos
   return (
     <ul>
       <li>
