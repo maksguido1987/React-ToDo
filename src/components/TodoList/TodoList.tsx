@@ -3,7 +3,7 @@ import { ITodos } from '../../interfaces/interfaces';
 import TodoListItem from './TodoListItem';
 import './todo-list.scss';
 
-const TodoList: FC<ITodos> = ({ todos, onDeleted }) => {
+const TodoList: FC<ITodos> = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
   const element = todos.map((el) => {
     return (
       <li key={el.id} className="list-group-item">
@@ -12,6 +12,8 @@ const TodoList: FC<ITodos> = ({ todos, onDeleted }) => {
           textItem={el.textItem}
           important={el.important}
           onDeletedListItem={() => onDeleted(el.id)}
+          onToggleImportant={() => onToggleImportant(el.id)}
+          onToggleDone={() => onToggleDone(el.id)}
         />
       </li>
     );

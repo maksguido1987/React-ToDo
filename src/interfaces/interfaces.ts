@@ -1,13 +1,11 @@
 export interface ITodoListItem {
   textItem: string;
   important?: boolean;
+  done?: boolean;
   id: number;
   onDeletedListItem?: () => void;
-}
-
-export interface ITodoListState {
-  done: boolean;
-  important: boolean;
+  onToggleImportant?: () => void;
+  onToggleDone?: () => void;
 }
 
 export interface ITodoAppState {
@@ -17,6 +15,8 @@ export interface ITodoAppState {
 export interface ITodos {
   todos: ITodoListItem[];
   onDeleted: (id: number) => void;
+  onToggleImportant: (id: number) => void;
+  onToggleDone: (id: number) => void;
 }
 
 export interface IMoreDone {
