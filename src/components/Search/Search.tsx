@@ -1,11 +1,9 @@
 import React, { FC } from 'react';
-import ItemStatusFilter from '../ItemStatusFilter/ItemStatusFilter';
 
 const Search: FC = () => {
   return (
     <div>
-      <input type="text" placeholder="search" />
-      <ItemStatusFilter />
+      <input type="text" className="form-control search-input" placeholder="type to search" />
     </div>
   );
 };
