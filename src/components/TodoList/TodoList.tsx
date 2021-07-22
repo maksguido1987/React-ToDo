@@ -8,6 +8,7 @@ const TodoList: FC<ITodos> = ({ todos, onDeleted }) => {
     return (
       <li key={el.id} className="list-group-item">
         <TodoListItem
+          id={el.id}
           textItem={el.textItem}
           important={el.important}
           onDeletedListItem={() => onDeleted(el.id)}
