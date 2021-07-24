@@ -11,6 +11,7 @@ const TodoList: FC<ITodos> = ({ todos, onDeleted, onToggleImportant, onToggleDon
           id={el.id}
           textItem={el.textItem}
           important={el.important}
+          done={el.done}
           onDeletedListItem={() => onDeleted(el.id)}
           onToggleImportant={() => onToggleImportant(el.id)}
           onToggleDone={() => onToggleDone(el.id)}

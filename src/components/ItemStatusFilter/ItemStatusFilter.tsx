@@ -1,21 +1,31 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import { IItemStatusFilter } from '../../interfaces/interfaces';
 import './item-status-filter.scss';
 
-export default class ItemStatusFilter extends Component {
+export default class ItemStatusFilter extends Component<IItemStatusFilter> {
+  buttons = [
+    { name: 'all', text: 'All' },
+    { name: 'active', text: 'Active' },
+    { name: 'done', text: 'Done' },
+  ];
+
   render() {
-    return (
-      <div className="btn-group">
-        <button type="button" className="btn btn-info">
-          All
+    const { filter, onFilterChange } = this.props;
+    const buttons = this.buttons.map(({ name, text }) => {
+      const isActive = filter === name;
+      const clazz = isActive ? 'btn-info' : 'btn-outline-secondary';
+      return (
+        <button
+          key={name}
+          type="button"
+          className={`btn ${clazz}`}
+          onClick={() => onFilterChange(name)}
+        >
+          {text}
         </button>
-        <button type="button" className="btn btn-outline-secondary">
-          Active
-        </button>
-        <button type="button" className="btn btn-outline-secondary">
-          Done
-        </button>
-      </div>
-    );
+      );
+    });
+    return <div className="btn-group">{buttons}</div>;
   }
 }
